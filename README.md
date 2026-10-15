@@ -1,38 +1,27 @@
-# FARHAN & AMEL — LUXURY SILHOUETTE ENGAGEMENT INVITATION
+# UNDANGAN FARHAN & AMEL — LINK TAMU PERSONAL
 
-Tanggal: Jumat, **25 Desember 2026** • Pukul **13.00 WIB**  
-Lokasi: **Jl. Pasar Baru, Panyabungan Barat, Sumatera Utara**
+Website tunangan dengan animasi siluet pegangan tangan, floral arch emas, ayat QS. Ar-Rum:21, Spotify “Nanti Kita Seperti Ini” — Batas Senja, countdown, dan buku tamu.
 
-## Fitur
-- **Animasi siluet pasangan bergandengan tangan** dengan golden floral arch / lengkungan bunga, gaya cream–champagne. Ini adalah ilustrasi siluet simbolis, bukan potret wajah sebenarnya.
-- Cover yang dibuka tamu, animasi halus, layout responsive.
-- **QS. Ar-Rum ayat 21**: teks Arab, terjemahan Indonesia, dan keterangan sumber.
-- Countdown, tombol lokasi Google Maps, galeri dekoratif, dan musik **“Nanti Kita Seperti Ini” — Batas Senja** via Spotify Player.
-- Buku tamu / ucapan & RSVP.
+## Cara pasang
+1. Unggah `index.html`, `buat-link.html`, dan (opsional) `supabase.sql` ke root repository GitHub yang tersambung ke Vercel.
+2. Deploy Vercel seperti biasa, lalu buka `https://DOMAIN-KAMU/buat-link.html`.
+3. Di halaman pembuat link, masukkan alamat website Vercel dan daftar nama penerima **satu per baris**.
+4. Tekan **Buat Link Undangan**, lalu **Salin Link** atau **WhatsApp** untuk setiap nama.
 
-## Cara membuka website
-Klik dua kali file `index.html` untuk pratinjau. Koneksi internet dibutuhkan untuk Google Fonts, foto latar dekoratif Unsplash, pemutar Spotify, serta Supabase bila dihubungkan.
+Contoh berdasarkan domain yang terlihat di screenshot sebelumnya:
+- Tsaqif & Partner: `https://a-f-three.vercel.app/?to=Tsaqif%20%26%20Partner`
+- Khalil & Partner: `https://a-f-three.vercel.app/?to=Khalil%20%26%20Partner`
 
-## Cara unggah ke GitHub dan Vercel
-1. Ekstrak ZIP. Masukkan `index.html` ke direktori root repository GitHub yang terhubung ke Vercel.
-2. Commit, lalu tunggu proses deploy Vercel.
-3. Buka link Vercel melalui HP; tekan tombol **Buka Undangan** pada cover.
+**Catatan:** Bila domain kamu berubah, gunakan domain yang benar pada halaman pembuat link. Nama Farhan & Amel tidak berubah; hanya sapaan kepada penerima yang berubah. Nama penerima juga tampil di halaman utama setelah cover dibuka. Tamu bisa mengedit isian Nama pada RSVP jika perlu.
 
-## Penting: Buku tamu tersimpan online
-Tampilan buku tamu siap pakai tetapi **belum tersambung database**. Tanpa Supabase, data RSVP/ucapan hanya disimpan di perangkat/browser pembuatnya (mode pratinjau), bukan dilihat semua tamu. Untuk mengaktifkan penyimpanan lintas HP:
+## Tanpa halaman pembuat link
+Tambahkan `?to=Nama%20Tamu` pada URL utama. Tanda `&` harus diubah menjadi `%26` atau gunakan halaman pembuat link agar ter-encode otomatis.
 
-1. Di Supabase, buat project atau pakai project yang sudah ada.
-2. Buka **SQL Editor** dan jalankan file `supabase.sql`.
-3. Edit `index.html`, cari pengaturan `CONFIG`, isi `supabaseUrl` dan `supabaseAnonKey` menggunakan publishable key / anon public key. **Jangan** isi service role key atau password database.
-4. Deploy ulang. Coba isi ucapan dari dua HP berbeda.
+## WhatsApp preview
+Karena `index.html` adalah website statis, *preview kartu link WhatsApp* bisa tetap bertuliskan “Farhan & Amel”; **nama penerima terlihat saat website dibuka**. Untuk preview WhatsApp yang berbeda per penerima diperlukan URL yang benar-benar disajikan secara dinamis pada sisi server.
 
-Buku tamu publik tidak memakai login; moderation/pencegahan spam disarankan bila situs disebarkan luas.
+## Supabase (opsional)
+File `supabase.sql` disertakan. Jalankan di SQL Editor Supabase, lalu isi `CONFIG.supabaseUrl` dan `CONFIG.supabaseAnonKey` di `index.html`. Tanpa Supabase, RSVP dan ucapan masih hanya disimpan sebagai pratinjau di browser itu sendiri, belum tersinkronisasi antar tamu. Jangan pernah mengunggah service-role key ke website.
 
-## Musik Spotify
-Pemutar Spotify dari track **Nanti Kita Seperti Ini — Batas Senja** telah disematkan. Musik memerlukan aksi Play oleh tamu; pemutaran full-track tergantung izin dan akses Spotify masing-masing pengguna. Autoplay lagu penuh **tidak dijamin** oleh Spotify/browser.
-
-## Personalisasi
-- Nama penerima di link: `https://domainmu.vercel.app/?to=Nama%20Tamu`
-- Nama, tanggal, lokasi, warna: ubah bagian HTML / CONFIG / CSS.
-- Siluet sudah berbentuk SVG inline di `index.html`, sehingga tidak membutuhkan file gambar atau aplikasi tambahan.
-- Foto di galeri saat ini foto bunga dekoratif, **bukan foto Farhan & Amel**. Untuk foto sendiri, ganti background CSS `.photo-tile.one` dan seterusnya.
+## Spotify
+Pengunjung harus menekan Play pada embed Spotify. Pemutaran lagu penuh bergantung pada akses Spotify mereka dan aturan browser.
